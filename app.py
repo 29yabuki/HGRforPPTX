@@ -17,8 +17,7 @@ from model import KeyPointClassifier
 from model import PointHistoryClassifier
 
 COOLDOWN = 3.0
-DISPLAY_DURATION = 1.0
-KEYPOINT_COOLDOWN = 1.0
+DISPLAY_DURATION = 2.0
 
 def get_args():
     parser = argparse.ArgumentParser()
@@ -184,11 +183,11 @@ def main():
                     if current_kp != recent_kp and not cooldown_on:
                         if current_kp == next_gesture_name:
                             pyautogui.press("right")
-                            print("NEXT SLIDE!")
+                            print("NEXT")
                             moved = True
                         elif current_kp == previous_gesture_name:
                             pyautogui.press("left")
-                            print("PREVIOUS SLIDE!")
+                            print("PREVIOUS")
                             moved = True
                         if moved:
                             action_cooldown = curr_time + COOLDOWN
